@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
 
-let schema = new mongooose.Schema({
-    name: { type:String,requiered:true },
-    logo: { type:String,requiered:true },
-    website: { type:String,requiered:true },
-    description: { type:String,requiered:false },
-    active: { type:Boolean,requiered:true },
+let schema = new mongoose.Schema({
+    name: { type:String,required:true },
+    logo: { type:String,required:true },
+    website: { type:String,required:true },
+    description: { type:String,required:false },
+    active: { type:Boolean,required:true },
     user_id: {
         type: mongoose.Types.ObjectId,
         ref: 'users',
@@ -16,6 +16,7 @@ let schema = new mongooose.Schema({
     timestamps: true
 })
 
-let collection = 'companies'
-let COmpany = mongoose.Model ( schema,collection )
+let collection = 'companies';
+
+let Company = mongoose.model(collection, schema)
 export default Company
